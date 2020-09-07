@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <app-router>
+        <app-route
+            path = "/home"
+            title = "Home"
+            component = "home-page"
+            is-default>
+        </app-route>
+        <!-- <app-route
+            path = "/about"
+            title = "About"
+            component = "about-page"
+            roles = "manager/admin">
+        </app-route> -->
+        <app-route
+            path = "/todo/:todo-id"
+            title = "Todo detail"
+            component = "todo-detail-page">
+        </app-route>
+        <app-outlet></app-outlet>
+    </app-router>
+
+    <!-- Utils -->
+    <!-- Lib -->
+    <script type="module" src="js/lib/router.js"></script>
+    <!-- Components -->
+    <script type="module" src="js/components/todo/header.js"></script>
+    <script type="module" src="js/components/todo/list.js"></script>
+    <script type="module" src="js/components/ui/pagination.js"></script>
+    <!-- Pages -->
+    <script type="module" src="js/pages/home.js"></script>
+    <script src="js/pages/about.js"></script>
+    <script type="module" src="js/pages/todo.js"></script>
+
+</body>
+</html>
