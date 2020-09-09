@@ -20,19 +20,18 @@ try {
                 super();
                 this.current_route;
                 this.routes;
-            }
-
-            get defaultRoute() {
-                let default_route = null;
-                let route = this.querySelector(`${ROUTE}[is-default]`);
-                if (route) {
-                    default_route = {
-                        path: route.getAttribute('path'),
-                        title: route.getAttribute('title'),
-                        component: route.getAttribute('component')
-                    };
-                }
-                return default_route; 
+                this.default_route = (() => {
+                    let default_route = null;
+                    let route = this.querySelector(`${ROUTE}[is-default]`);
+                    if (route) {
+                        default_route = {
+                            path: route.getAttribute('path'),
+                            title: route.getAttribute('title'),
+                            component: route.getAttribute('component')
+                        };
+                    }
+                    return default_route; 
+                })();
             }
 
             get outlet() {
@@ -57,9 +56,9 @@ try {
                     this.current_route = matched_route;
                     this._update();
                 }
-                else if (this.defaultRoute) {
-                    window.history.replaceState(null, null, `${window.location.pathname}#${this.defaultRoute.path}`);
-                    this.current_route = this.defaultRoute;
+                else if (this.default_route) {
+                    window.history.replaceState(null, null, `${window.location.pathname}#${this.default_route.path}`);
+                    this.current_route = this.default_route;
                     this._update();
                 }
                 else {
