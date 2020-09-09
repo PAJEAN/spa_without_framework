@@ -153,7 +153,9 @@ The state manager used for this project is inspired by the article of Andy Bell 
 <li> <i>actions</i> call mutations and can make some asynchronous API calls </li>
 <li> <i>mutations</i> change the state which is the single source of truth </li>
 </ul>
+</p>
 
+<p align="justify">
 To make reactive components, the state is wrapped into a <i>Proxy</i> Javascript object that publish a new event when the state has been updated (with the PubSub class). So, all components subscribed to this event can catch it to re-render their view (<i>Nota bene</i>: To call the handle "set" function of a Proxy and be reactive, a reassignment of the state is necessary).
 </p>
 
