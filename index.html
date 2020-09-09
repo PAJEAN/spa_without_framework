@@ -15,16 +15,16 @@
             component = "home-page"
             is-default>
         </app-route>
-        <!-- <app-route
-            path = "/about"
-            title = "About"
-            component = "about-page"
-            roles = "manager/admin">
-        </app-route> -->
         <app-route
             path = "/todo/:todo-id"
             title = "Todo detail"
             component = "todo-detail-page">
+        </app-route>
+        <app-route
+            path = "/about"
+            title = "About"
+            component = "about-page"
+            roles = "manager/admin">
         </app-route>
         <app-outlet></app-outlet>
     </app-router>

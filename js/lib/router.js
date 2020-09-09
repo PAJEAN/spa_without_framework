@@ -19,17 +19,7 @@ try {
             constructor() {
                 super();
                 this.current_route;
-            }
-
-            get routes() {    
-                return Array.from(this.querySelectorAll(ROUTE))
-                    .filter(node => node.parentNode === this)
-                    .map(node => ({
-                        path: node.getAttribute('path'),
-                        title: node.getAttribute('title'), 
-                        component: node.getAttribute('component'),
-                        roles: node.hasAttribute('roles') ? parseTokens(node.getAttribute('roles')) : []
-                    }));
+                this.routes;
             }
 
             get defaultRoute() {
@@ -128,6 +118,15 @@ try {
             }
           
             connectedCallback() {
+                this.routes = Array.from(this.querySelectorAll(ROUTE))
+                        .filter(node => node.parentNode === this)
+                        .map(node => ({
+                            path: node.getAttribute('path'),
+                            title: node.getAttribute('title'), 
+                            component: node.getAttribute('component'),
+                            roles: node.hasAttribute('roles') ? parseTokens(node.getAttribute('roles')) : []
+                }));
+                
                 this._navigate(window.location.hash);
                 window.addEventListener('hashchange', () => {
                     this._navigate(window.location.hash);

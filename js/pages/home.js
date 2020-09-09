@@ -95,7 +95,7 @@ try {
 
                 content.querySelector("#addTodo").addEventListener('click', () => {
                     select_tag = content.querySelector("select");
-                    console.log(select_tag.value);
+                    
                     store.dispatch('todoAddItem', {
                         userId: select_tag.value,
                         title: document.querySelector('#todoText').value,
