@@ -68,7 +68,8 @@ export const module = {
     },
     getters: {
         [NAMESPACE + 'ItemsLength']: (state, key) => state.todo_items.length,
-        [NAMESPACE + 'LastId']: (state, key) => state.todo_items[(state.todo_items.length - 1)].id,
+        // [NAMESPACE + 'LastId']: (state, key) => state.todo_items[(state.todo_items.length - 1)].id,
+        [NAMESPACE + 'LastId']: (state, key) => state.todo_items.reduce((acc, elmt) => parseInt(elmt.id) > parseInt(acc) ? elmt.id : acc, state.todo_items.length > 0 ? state.todo_items[0].id : 0),
         [NAMESPACE + 'UsersId']: (state, key) => state.todo_items.reduce((acc, item) => {
             if (acc.indexOf(parseInt(item.userId)) == -1)
                 acc.push(parseInt(item.userId))
