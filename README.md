@@ -16,7 +16,7 @@ node server.js
 And go to http://localhost:8000/.
 
 <p align="justify">
-The application makes a ajax call to get fake todos on <a href="https://jsonplaceholder.typicode.com/guide.html">jsonplaceholder</a>, the returned json includes 200 todos from 10 different users (20 todos / user).
+The application makes an Ajax call to get fake todos on <a href="https://jsonplaceholder.typicode.com/guide.html">jsonplaceholder</a>, the returned json includes 200 todos from 10 different users (20 todos / user).
 </p>
 
 ```
