@@ -171,19 +171,17 @@ The aim of a getter is to return a specific data from our state. To add getters 
 
 ```
 get: params.hasOwnProperty('getters')
-    ? (state, key) => {
-        return key in params.getters ? params.getters[key](state) : state[key];
-    }
+    ? (state, key) => key in params.getters ? params.getters[key](state) : state[key]
     : (state, key) => state[key]
 ```
 
 <p align="justify">
-Thus, a getter has to be a function with one parameter: state where state is a reference of our state.
+Thus, a getter has to be a function with one parameter "state" the reference of our state.
 </p>
 
 ```
 /* Return the length of the todolist */
-itemsLength: (state, key) => state.todo_items.length
+itemsLength: (state) => state.todo_items.length
 ```
 
 <p align="justify">

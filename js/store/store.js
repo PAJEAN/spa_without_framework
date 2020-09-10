@@ -30,9 +30,7 @@ export class Store {
                 return true;
             },
             get: params.hasOwnProperty('getters')
-                ? (state, key) => {
-                    return key in params.getters ? params.getters[key](state) : state[key];
-                }
+                ? (state, key) => key in params.getters ? params.getters[key](state) : state[key]
                 : (state, key) => state[key]
         });
     }
